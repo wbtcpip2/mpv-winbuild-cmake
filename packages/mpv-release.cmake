@@ -53,7 +53,7 @@ ExternalProject_Add(mpv-release
         ${mpv_lto_mode}
         -Dlibmpv=true
         -Dpdf-build=enabled
-        -Dlua=enabled
+        -Dlua=disabled
         -Djavascript=enabled
         -Dsdl2-gamepad=enabled
         -Dlibarchive=enabled
