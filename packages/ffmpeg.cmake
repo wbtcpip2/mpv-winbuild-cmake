@@ -107,6 +107,7 @@ ExternalProject_Add(ffmpeg
         --enable-amf
         --enable-openal
         --enable-opengl
+        --disable-x86asm
         --disable-filter=atadenoise
         --disable-doc
         --disable-ffplay
