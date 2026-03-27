@@ -114,8 +114,8 @@ ExternalProject_Add(ffmpeg
         --disable-videotoolbox
         --disable-decoder=libaom_av1
         ${ffmpeg_lto}
-        --extra-cflags='-Wno-error=int-conversion'
-        --extra-libs=${ffmpeg_extra_libs} # -lstdc++ / -lc++ needs by libjxl and shaderc
+        --extra-cflags=-Wno-error=int-conversion
+        --extra-libs=${ffmpeg_extra_libs}
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
