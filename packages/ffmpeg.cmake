@@ -86,7 +86,7 @@ ExternalProject_Add(ffmpeg
         --enable-libaom
         --enable-libsvtav1
         --enable-libdav1d
-        --enable-libxvid
+        --disable-libxvid
         --enable-libzimg
         --enable-openssl
         --enable-libxml2
