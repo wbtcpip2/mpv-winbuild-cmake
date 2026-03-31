@@ -28,7 +28,6 @@ ExternalProject_Add(ffmpeg
         vorbis
         x264
         ${ffmpeg_x265}
-        xvidcore
         libxml2
         libvpl
         libopenmpt
