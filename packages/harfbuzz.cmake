@@ -21,6 +21,13 @@ ExternalProject_Add(harfbuzz
         -Dtests=disabled
         -Ddocs=disabled
         -Dbenchmark=disabled
+        # FIX per Win32 MinGW
+        -Dcpp_std=c++17
+        -Db_lto=false
+        -Db_pie=false
+        -Db_staticpic=false
+        -Dc_args="-fexceptions"
+        -Dcxx_args="-fexceptions"
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ${EXEC} ninja -C <BINARY_DIR> install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
