@@ -2,34 +2,39 @@ ExternalProject_Add(harfbuzz
     DEPENDS
         freetype2
         libpng
+
     GIT_REPOSITORY https://github.com/harfbuzz/harfbuzz.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_REMOTE_NAME origin
-    GIT_TAG main
+    GIT_TAG 8.3.0   # <--- FIX CRITICO
     GIT_CLONE_FLAGS "--sparse --filter=tree:0"
     GIT_CLONE_POST_COMMAND "sparse-checkout set --no-cone /* !test"
     UPDATE_COMMAND ""
+
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}
         --libdir=${MINGW_INSTALL_PREFIX}/lib
         --cross-file=${MESON_CROSS}
         --buildtype=release
         --default-library=static
+
         -Dicu=disabled
         -Dglib=disabled
         -Dgobject=disabled
         -Dtests=disabled
         -Ddocs=disabled
         -Dbenchmark=disabled
-        # FIX per Win32 MinGW
+
         -Dcpp_std=c++17
         -Db_lto=false
         -Db_pie=false
         -Db_staticpic=false
         -Dc_args=-fexceptions
         -Dcxx_args=-fexceptions
+
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ${EXEC} ninja -C <BINARY_DIR> install
+
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
 )
 
