@@ -98,15 +98,13 @@ ExternalProject_Add(ffmpeg
         --enable-libshaderc
         --enable-libzvbi
         --enable-libaribcaption
-        --enable-amf
+        --disable-amf
         --enable-openal
         --enable-opengl
-        --disable-x86asm
-        --disable-asm
         --disable-doc
         --disable-ffplay
         --disable-ffprobe
-        --enable-vaapi
+        --disable-vaapi
         --disable-vdpau
         --disable-videotoolbox
         --disable-decoder=libaom_av1
