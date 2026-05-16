@@ -1,3 +1,6 @@
+# Skip building GCC (use prebuilt toolchain)
+set(GCC_SKIP_BUILD ON)
+
 ExternalProject_Add(gcc
     DEPENDS
         mingw-w64-headers
